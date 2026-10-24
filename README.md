@@ -119,13 +119,13 @@ Python also infers dependencies for unresolved attribute accesses. Each such edg
 
 The setup commands are npm scripts in `package.json`.
 
-## 2. Use the VS Code extension
+## 2. Use the DepScan VS Code extension
 
-The extension adds **Analyze Dependencies** to the right-click menu on a folder. It writes `dep-result.json` and `dep-result.unmapped.json` into the folder you analyze.
+DepScan adds **Analyze Dependencies** to the right-click menu on a folder. It writes `dep-result.json` and `dep-result.unmapped.json` into the folder you analyze.
 
 ### Build and install
 
-Do section 1 first (`npm run setup`), then, from the project folder, run the commands below. `npm run extension` builds the tool and copies it into the extension; `npx vsce package` creates `vscode-extension/lsp-dep-extractor-0.1.0.vsix`.
+Do section 1 first (`npm run setup`), then, from the project folder, run the commands below. `npm run extension` builds the tool and copies it into the extension; `npx vsce package` creates `vscode-extension/depscan-0.1.0.vsix`.
 
 ```bash
 npm run extension
@@ -138,7 +138,7 @@ Then, in VS Code:
 
 1. Press `Cmd+Shift+P` (`Ctrl+Shift+P` on Windows and Linux).
 2. Run **Extensions: Install from VSIX...**
-3. Select `lsp-dep-extractor-0.1.0.vsix` from the `vscode-extension` folder.
+3. Select `depscan-0.1.0.vsix` from the `vscode-extension` folder.
 4. Run **Developer: Reload Window**.
 
 Notes:

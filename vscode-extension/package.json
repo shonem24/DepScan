@@ -1,6 +1,6 @@
 {
-  "name": "lsp-dep-extractor",
-  "displayName": "LSP Dependency Extractor",
+  "name": "depscan",
+  "displayName": "DepScan",
   "description": "Analyze structural dependencies in a project using LSP and tree-sitter",
   "version": "0.1.0",
   "publisher": "lsp-dep-extractor",
@@ -12,7 +12,8 @@
     "commands": [
       {
         "command": "lspDepExtractor.analyze",
-        "title": "Analyze Dependencies"
+        "title": "Analyze Dependencies",
+        "category": "DepScan"
       }
     ],
     "menus": {
@@ -30,7 +31,7 @@
       ]
     },
     "configuration": {
-      "title": "LSP Dependency Extractor",
+      "title": "DepScan",
       "properties": {
         "lspDepExtractor.preferredLsp": {
           "type": "object",
