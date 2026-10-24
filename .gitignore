@@ -1,0 +1,35 @@
+# Rust build output
+target/
+
+# macOS
+.DS_Store
+
+# Analysis result files (generated output)
+result.json
+result*.json
+*_result.json
+deps.json
+java_result.json
+new_neodepends_result.json
+test-neodepends.json
+deps*.json
+
+# Local assistant/session state
+.claude/
+
+# Python packaging artifacts
+lsp_dep_extractor.egg-info/
+__pycache__/
+*.pyc
+
+# VS Code extension build (covered by vscode-extension/.gitignore too)
+vscode-extension/node_modules/
+vscode-extension/out/
+vscode-extension/*.vsix
+vscode-extension/bin/lsp-dep-extractor-*
+dsm-viewer-extension/*.vsix
+dep-result.json
+test_repos/
+
+# Local language server installs (npm run setup)
+.tools/

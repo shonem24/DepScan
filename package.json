@@ -1,0 +1,10 @@
+{
+  "name": "lsp-dep-extractor-tasks",
+  "private": true,
+  "description": "Cross-platform setup tasks. Run with `npm run setup`, `npm run verify` or `npm run extension`.",
+  "scripts": {
+    "setup": "npm install --no-fund --prefix .tools pyright typescript typescript-language-server && (rustup component add rust-analyzer || echo rustup not found, skipping rust-analyzer) && cargo build --release && node scripts/verify.js",
+    "verify": "node scripts/verify.js",
+    "extension": "cargo build --release && node scripts/copy-binary.js"
+  }
+}

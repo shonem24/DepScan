@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Compiled output
+out/
+
+# Packaged extension
+*.vsix
+
+# Bundled binaries (generated — copy from cargo build)
+bin/lsp-dep-extractor-*
+
+# macOS
+.DS_Store

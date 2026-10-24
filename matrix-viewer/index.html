@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dependency Structure Matrix</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">DSM</span>
+      <span id="status" class="status">Load dep-result.json</span>
+    </div>
+
+    <div class="controls">
+      <label class="btn" title="Open dependency JSON">
+        Open
+        <input id="fileInput" type="file" accept="application/json,.json" />
+      </label>
+      <button id="loadDefault" class="btn" type="button" title="Reload ../dep-result.json">Reload</button>
+
+      <div class="seg" role="group" aria-label="Sort">
+        <button id="sortGiven" type="button" class="active" title="Extraction / project order">As given</button>
+        <button id="sortName" type="button" title="Alphabetical">By name</button>
+        <button id="sortLowerTri" type="button" title="Reorder so dependencies sit in the lower triangle (feed-forward order)">Lower tri</button>
+      </div>
+
+      <div class="seg" role="group" aria-label="Level">
+        <button id="levelFolders" type="button">Folders</button>
+        <button id="levelFiles" type="button" class="active">Files</button>
+        <button id="levelSymbols" type="button">Symbols</button>
+      </div>
+
+      <div class="seg zoom" role="group" aria-label="Zoom">
+        <button id="zoomOut" type="button" title="Zoom out">−</button>
+        <button id="zoomReset" type="button" title="Reset zoom" class="zoom-pct">100%</button>
+        <button id="zoomIn" type="button" title="Zoom in">+</button>
+      </div>
+
+      <input id="search" type="search" placeholder="Filter…" />
+    </div>
+  </header>
+
+  <section class="kinds-bar">
+    <div class="seg" role="group" aria-label="Kind mode">
+      <button id="kindModeToggle" type="button" class="active">Toggle</button>
+      <button id="kindModeOnly" type="button">Only</button>
+    </div>
+    <button id="kindReset" class="btn" type="button">Reset</button>
+    <div id="kindFilters" class="kind-list" aria-label="Dependency kinds"></div>
+    <span id="stats" class="stats"></span>
+  </section>
+
+  <main class="workspace">
+    <aside class="tree-panel">
+      <div id="tree" class="tree"></div>
+    </aside>
+
+    <section class="matrix-panel">
+      <div class="matrix-shell" id="matrixShell">
+        <div class="corner"></div>
+        <div id="colHeader" class="col-header"></div>
+        <div id="rowHeader" class="row-header"></div>
+        <div id="viewport" class="viewport">
+          <canvas id="matrix"></canvas>
+        </div>
+        <div id="labelResize" class="label-resize" title="Drag to resize"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="hoverCard" class="hover-card" hidden></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

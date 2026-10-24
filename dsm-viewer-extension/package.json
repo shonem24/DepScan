@@ -1,0 +1,68 @@
+{
+  "name": "dsm-viewer",
+  "displayName": "DSM Viewer",
+  "description": "Dependency Structure Matrix viewer for dep-result.json / deps.json",
+  "version": "0.1.0",
+  "publisher": "lsp-lab",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dsmViewer.open",
+        "title": "DSM: Open Matrix Viewer",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "dsmViewer.openActive",
+        "title": "DSM: Open Active JSON as Matrix"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "dsmViewer.open",
+          "when": "resourceExtname == .json",
+          "group": "navigation@90"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "dsmViewer.openActive",
+          "when": "resourceExtname == .json",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "dsmViewer.open"
+        },
+        {
+          "command": "dsmViewer.openActive",
+          "when": "resourceExtname == .json"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "dsmViewer.matrix",
+        "displayName": "DSM Matrix",
+        "selector": [
+          { "filenamePattern": "dep-result.json" },
+          { "filenamePattern": "deps.json" },
+          { "filenamePattern": "*.dsm.json" }
+        ],
+        "priority": "option"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "npx --yes @vscode/vsce package --no-dependencies"
+  }
+}

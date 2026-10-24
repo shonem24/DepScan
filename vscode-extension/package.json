@@ -1,0 +1,61 @@
+{
+  "name": "lsp-dep-extractor",
+  "displayName": "LSP Dependency Extractor",
+  "description": "Analyze structural dependencies in a project using LSP and tree-sitter",
+  "version": "0.1.0",
+  "publisher": "lsp-dep-extractor",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "lspDepExtractor.analyze",
+        "title": "Analyze Dependencies"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "lspDepExtractor.analyze",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "lspDepExtractor.analyze"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "LSP Dependency Extractor",
+      "properties": {
+        "lspDepExtractor.preferredLsp": {
+          "type": "object",
+          "description": "Preferred LSP server ID per language. Example: {\"python\": \"pylsp\"}. The binary must be installed.",
+          "default": {},
+          "additionalProperties": { "type": "string" }
+        },
+        "lspDepExtractor.customLspCommands": {
+          "type": "object",
+          "description": "Fully custom LSP launch commands per language. Bypasses auto-detection entirely. Example: {\"python\": \"/home/user/.venv/bin/pylsp\"}",
+          "default": {},
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.3.0"
+  }
+}
